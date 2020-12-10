@@ -10,12 +10,13 @@ Permitir a personas que se encarguen de cultivar productos solicitar recomendaci
 ## 2.	Descripción General de la Metodología
 ## 2.1	Fundamentación
 Las principales razones del uso de un ciclo de desarrollo iterativo e incremental de tipo scrum para la ejecución de este proyecto son:
-•	Sistema modular. Las características del sistema de Recomendaciones de cultivos OntoAgri permiten desarrollar una base funcional mínima y sobre ella ir incrementando las funcionalidades o modificando el comportamiento o apariencia de las ya implementadas, por ejemplo, incluir ahora las zonas en las que se debe cultivar a partir de un cultivo específico.
-•	Entregas frecuentes y continuas al cliente de los módulos terminados, de forma que puede disponer de una funcionalidad básica en un tiempo mínimo y a partir de ahí un incremento y mejora continua del sistema.
-•	Previsible inestabilidad de requisitos.
-o	Es posible que el sistema incorpore más funcionalidades de las inicialmente identificadas, como añadir otro tipo de reglas.
-o	Es posible que durante la ejecución del proyecto se altere el orden en el que se desean recibir los módulos o historias de usuario terminadas.
-o	Para Corpoica resulta difícil precisar cuál será la dimensión completa del sistema, y su crecimiento puede continuarse en el tiempo suspenderse o detenerse.
+
+-	Sistema modular. Las características del sistema de Recomendaciones de cultivos OntoAgri permiten desarrollar una base funcional mínima y sobre ella ir incrementando las funcionalidades o modificando el comportamiento o apariencia de las ya implementadas, por ejemplo, incluir ahora las zonas en las que se debe cultivar a partir de un cultivo específico.
+-	Entregas frecuentes y continuas al cliente de los módulos terminados, de forma que puede disponer de una funcionalidad básica en un tiempo mínimo y a partir de ahí un incremento y mejora continua del sistema.
+-	Previsible inestabilidad de requisitos.
+       -	Es posible que el sistema incorpore más funcionalidades de las inicialmente identificadas, como añadir otro tipo de reglas.
+       -	Es posible que durante la ejecución del proyecto se altere el orden en el que se desean recibir los módulos o historias de usuario terminadas.
+       -	Para Corpoica resulta difícil precisar cuál será la dimensión completa del sistema, y su crecimiento puede continuarse en el tiempo suspenderse o detenerse.
 
 ## Referencias
 
