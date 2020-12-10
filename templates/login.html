@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
+  <script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/css/all.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+	<script src="../static/js/sweetalert.min.js"></script>
+	<!--<script src="{{ url_for('static', filename='../static/js/sweetalert.min.js') }}"></script>-->
+<!--===============================================================================================-->
+ <script src="../static/js/action_login.js"></script>
+</head>
+<body>
+
+	<div class="limiter" id="login">
+		<div class="container-login100">
+
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<span class="login100-form-title_principal">
+						Sistema de Recomendación de Cultivos
+					</span>
+					<img id = "logo_user" src="../static/images/logo.png" alt="IMG">
+				</div>
+
+				<form class="login100-form validate-form">
+					<br>
+					<span class="login100-form-title" id='role_login'>
+						Agricultor
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="text" placeholder="usuario" id="codigo_login">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Code is required">
+						<input class="input100" type="password" placeholder="contraseña" id="password_login">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" id="btn_login">
+							Entrar
+						</button>
+					</div>
+					<br><br>
+					<div id='enlace_administrador' class="text-center">
+						<a class="txt2" href="javascript:void(0);" id="coordinator_account_form">
+							<i class="fas fa-user-tie m-l-5" aria-hidden="true"></i>
+							Entrar como administrador
+							<i class="fas fa-long-arrow-alt-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+					<div id='enlace_agricultor' class="text-center">
+						<a class="txt2" href="javascript:void(0);" id="student_account_form">
+							<i class="fas fa-user m-l-5" aria-hidden="true"></i>
+							Entrar como agricultor
+							<i class="fas fa-long-arrow-alt-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+<!--===============================================================================================-->
+
+<!--===============================================================================================-->
+	<script src="../static/vendor/bootstrap/js/popper.js"></script>
+	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+
+
+</body>
+</html>

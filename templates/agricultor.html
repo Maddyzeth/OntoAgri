@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
+  <script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<!--<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/css/all.css">
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+	<script src="{{ url_for('static', filename='../static/js/sweetalert.min.js') }}"></script>
+<!--===============================================================================================-->
+ <script src="../static/js/action_agricultor.js"></script>
+
+</head>
+
+<header class="masthead">
+</header>
+<body>
+
+
+<!-- Nav menu with user information -->
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark pmd-navbar pmd-z-depth">
+	    <a class="navbar-brand" href="#"><i class="fa fa-home m-l-5" aria-hidden="true"></i>OntoAgri</a>
+	    <div class="dropdown pmd-dropdown pmd-user-info ml-auto">
+	        <a href="javascript:void(0);" class="btn-user dropdown-toggle media align-items-center" data-toggle="dropdown" data-sidebar="true" aria-expanded="false">
+	            <img class="mr-2" src="../static/images/user_estudiante.png" width="40" height="40" alt="avatar">
+	            <div  class="media-body">
+	                <h6 id='documento'>{{documento}}</h6>
+	            </div>
+	        </a>
+	        <ul class=" nav navbar-nav navbar-right ">
+						<li class="dropdown-menu dropdown-menu-right">
+	                            <div class="navbar-login">
+	                                <div class="row">
+	                                    <div class="col-md-2">
+	                                        <p class="text-center">
+	                                            <span class="fa fa-user icon-size"></span>
+	                                        </p>
+	                                    </div>
+	                                    <div class="col-md-10">
+	                                        <p class="text-left"><strong>{{nombre}}</strong></p>
+	                                        <p class="text-left">
+	                                            <button id='btn_logout'  class="btn btn-primary btn-sm text-center">Cerrar Sesión</button>
+	                                        </p>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </li>
+	        </ul>
+	    </div>
+	</nav>
+
+<br>
+<br>
+<br><br><br><br>
+
+
+<div class="container" id="opciones_estudiante">
+		<div class="row text-center">
+				<div class="col">
+					<button id="recomendar_cultivos" class="btn btn-xl btn btn-outline-info"><i class="fas fa-book"></i> Recomendar cultivos </button>
+				</div>
+				<div class="col">
+					<button id="mis_fincas" class="btn btn-xl btn btn-outline-info"><i class="fas fa-chalkboard-teacher"></i> Mis fincas </button>
+				</div>
+		</div>
+		<br>
+		<hr/>
+	</div>
+
+<div class="container" id="opciones_fincas">
+	<br><br>
+	<div class="row text-center">
+			<div class="col">
+				<button id="adicionar_finca" class="btn btn-xl btn btn-outline-info"><i class="fas fa-edit"></i> Adicionar </button>
+			</div>
+	</div>
+	<br>
+	<hr/>
+</div>
+
+
+<div class="container text-center" id="fincasRecomendacion">
+	<br>
+	<div class="row text-center">
+		<div class="col">
+			<h5>Fincas</h5>
+			<br>
+			<select name="fincasOpcion" id="fincasUsuarioRecomendacion"></select>
+		</div>
+		<div class="col">
+			<button id="obtenerRecomendacion" class="btn btn-xl btn btn-outline-info"><i class="fas fa-carrot"></i> Obtener Recomendación</button>
+		</div>
+	</div>
+</div>
+
+<div id="cultivos" class="container text-center">
+
+</div>
+
+<div id="adicionarFinca" class="container center-block">
+	<br>
+	<div class="d-flex justify-content-center">
+		<form>
+	  <div class="form-row">
+		<div class="col-md-4 mb-3">
+		  <label for="finca">Nombre finca</label>
+		  <input type="text" class="form-control" id="finca" placeholder="Finca" required>
+		  <div class="invalid-feedback">
+			Ingrese el nombre de su finca.
+		  </div>
+		</div>
+		<div class="col-md-4 mb-3">
+		  <label for="zona">Zona</label>
+		  <input type="text" class="form-control" id="zona" placeholder="Zona" required>
+		  <div class="invalid-feedback">
+			Ingrese la zona donde se ubica su finca (barrio, vereda, etc.).
+		  </div>
+		</div>
+	  </div>
+	  <div class="form-row">
+		<div class="col-md-3 mb-3">
+		  <label for="lum">Luminosidad</label>
+		  <input type="text" class="form-control" id="lum" placeholder="Luminosidad" required>
+		  <div class="invalid-feedback">
+			Ingrese el número de horas al día (luminosidad) promedio de la zona.
+		  </div>
+		</div>
+		<div class="col-md-3 mb-3">
+		  <label for="top">Topografía</label>
+		  <input type="text" class="form-control" id="top" placeholder="Topografia" required>
+		  <div class="invalid-feedback">
+			Ingrese el ángulo de inclinación del terreno donde cultiva.
+		  </div>
+		</div>
+		<div class="col-md-3 mb-3">
+		  <label for="altura">Altura</label>
+		  <input type="text" class="form-control" id="altura" placeholder="Altura" required>
+		  <div class="invalid-feedback">
+			Ingrese la altura a la que se ubica su finca (metros sobre el nivel del mar).
+		  </div>
+		</div>
+	  </div>
+	  <div class="form-row">
+		<div class="col-md-3 mb-3">
+		  <label for="temp">Temperatura</label>
+		  <input type="text" class="form-control" id="temp" placeholder="Temperatura" required>
+		  <div class="invalid-feedback">
+			Ingrese la temperatura promedio de la zona.
+		  </div>
+		</div>
+		<div class="col-md-3 mb-3">
+		  <label for="hum">Humedad</label>
+		  <input type="text" class="form-control" id="hum" placeholder="Humedad" required>
+		  <div class="invalid-feedback">
+			Ingrese la humedad promedio de la zona en porcentaje (solo el número 1-100).
+		  </div>
+		</div>
+		<div class="col-md-3 mb-3">
+		  <label for="ph">Ph</label>
+		  <input type="text" class="form-control" id="ph" placeholder="Ph" required>
+		  <div class="invalid-feedback">
+			Ingrese el nivel de acidez (ph) del suelo donde cultiva.
+		  </div>
+		</div>
+	  </div>
+	  <div class="form-row">
+		<div class="col-md-4 mb-3">
+		  <label for="depto">Departamento</label>
+		  <input type="text" class="form-control" id="depto" placeholder="Departamento" required>
+		  <div class="invalid-feedback">
+			Ingrese el nombre del Departamento donde se ubica su finca.
+		  </div>
+		</div>
+		<div class="col-md-4 mb-3">
+		  <label for="region">Región</label>
+		  <input type="text" class="form-control" id="region" placeholder="Region" required>
+		  <div class="invalid-feedback">
+			Ingrese la región donde se ubica su finca (municipio, ciudad, etc.).
+		  </div>
+		</div>
+	  </div>
+			<br>
+		<div class="text-center">
+			<button id="registrarFinca" class="btn btn-primary" type="button">Registrar finca</button>
+		</div>
+	</form>
+	</div>
+
+</div>
+
+
+
+
+  <br><br><br>
+  <br><br><br><br>
+<div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 card text-white bg-dark" id="zonCopyRight">
+          <div class="card-body">
+            <p class="card-text" align="center">Universidad Distrital<i class="fa fa-copyright" aria-hidden="true"></i> 2020</p>
+            <p class="card-text" align="center">Sistema de Recomendación de Cultivos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--===============================================================================================-->
+
+<!--===============================================================================================-->
+	<script src="../static/vendor/bootstrap/js/popper.js"></script>
+	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+
+
+</body>
+</html>
